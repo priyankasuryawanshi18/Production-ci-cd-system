@@ -17,4 +17,4 @@ COPY requirements.txt .
 EXPOSE 8000
 
 # Start the FastAPI application
-CMD [ "main:app", "--host", "0.0.0.0", "--port", "5000"]
+CMD [ "main:02-ci-build-and-test/app", "--host", "0.0.0.0", "--port", "5000"]
