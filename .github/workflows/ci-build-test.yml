@@ -37,5 +37,5 @@ jobs:
         run: sleep 5
 
       # Step 5: Run tests
-      - name: Fake Test
-        run: echo "All tests passed successfully"
+      - name: Check if app is running
+        run: curl -f http://localhost:5000
