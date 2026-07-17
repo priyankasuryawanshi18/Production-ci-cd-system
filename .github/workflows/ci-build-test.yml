@@ -3,37 +3,39 @@ name: CI/CD Pipeline
 # 1. Define the triggering events
 on:
   push:
+    branches:
+      - main
+      - dev
     paths:
       - '02-ci-build-and-test/**'
-    branches: 
-      - main
-      - dev 
- 
 
 jobs:
-  # 2. Continuous Integration Job (Runs on PRs and Pushes)
+  # 2. Continuous Integration Job
   build-and-test:
     runs-on: ubuntu-latest
 
+    # Default working directory for all run commands
     defaults:
-    - run: 
-      working-directory: 02-ci-build-and-test   #-- only changes in this folder trigger it
+      run:
+        working-directory: 02-ci-build-and-test
 
-    STEPS:
-    - name : Checkout code
-      uses : actions/checkout@v4           #---   checkout the sourse code
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name : Build Docker Image
-      run : docker build -t cicd-prod .
+      # Step 2: Build Docker image
+      - name: Build Docker Image
+        run: docker build -t cicd-prod .
 
-    - name : Run Container
-      run : docker run -d -p 5000:5000 --name prod-container cicd-prod   # This starts a container from the image.
-                                                                         # Run in background.,Map host port 5000 to container port 5000.,Names the container.
+      # Step 3: Run Docker container
+      - name: Run Container
+        run: docker run -d -p 5000:5000 --name prod-container cicd-prod
 
-    - name : Wait for app
-      run : sleep 5 
-    
-    - name : Fake Test
-      run : echo " All tests passes sucessfully"
+      # Step 4: Wait for application to start
+      - name: Wait for app
+        run: sleep 5
 
-   
+      # Step 5: Run tests
+      - name: Fake Test
+        run: echo "All tests passed successfully"
