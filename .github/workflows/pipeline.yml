@@ -3,9 +3,10 @@ name: CI/CD Pipeline
 # 1. Define the triggering events
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: 
+      - main
+      - dev 
+ 
 
 jobs:
   # 2. Continuous Integration Job (Runs on PRs and Pushes)
