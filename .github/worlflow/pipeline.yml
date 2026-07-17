@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+ 
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name : List Files
+        run : ls -la
+
+      - name : Echo Message
+        run : echo "pipeline is working"
