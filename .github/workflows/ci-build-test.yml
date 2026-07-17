@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Fake Test ci/cd pipeline
 
 # 1. Define the triggering events
 on:
