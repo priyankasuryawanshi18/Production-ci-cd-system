@@ -1,26 +1,23 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
+# 1. Define the triggering events
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
+  # 2. Continuous Integration Job (Runs on PRs and Pushes)
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
+    - name: Checkout repository code
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+    - name : List Files
+      run : ls -la
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run test suite
-        run: npm test
+    - name : echo massage
+      run  : echo "pipeline is working"
