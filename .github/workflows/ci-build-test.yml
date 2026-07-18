@@ -6,8 +6,7 @@ on:
     branches:
       - main
       - dev
-    paths:
-      - "02-ci-build-and-test/**"
+    
 
 jobs:
   # 2. Continuous Integration Job
