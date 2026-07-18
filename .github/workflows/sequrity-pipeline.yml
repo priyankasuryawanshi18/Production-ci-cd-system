@@ -19,7 +19,8 @@ jobs:
       run:
         working-directory: 02-ci-build-and-test
 
-   
+    env:
+      API_KEY:${{ secrets.API_KEY }}
 
     steps:
       # Step 1: Checkout repository
@@ -32,7 +33,7 @@ jobs:
 
       # Step 3: Run Docker container
       - name: Run Container
-        run: docker run -d -p 5000:5000 --name prod-container cicd-prod
+        run: docker run -d -p 5000:5000 -e API_KEY=$API_KEY --name prod-container cicd-prod
 
       # Step 4: Wait for application to start
       - name: Wait for app (fail if not ready)
