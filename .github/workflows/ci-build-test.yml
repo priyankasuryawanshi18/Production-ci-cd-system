@@ -3,11 +3,12 @@ name: Fake Test ci/cd pipeline
 # 1. Define the triggering events
 on:
   push:
+    paths:
+      - "02-ci-build-and-test/**"
     branches:
       - main
       - dev
-    paths:
-      - "02-ci-build-and-test/**"
+    
 
 jobs:
   # 2. Continuous Integration Job
