@@ -2,11 +2,12 @@ name: Security Test CI/CD Pipeline
 
 on:
   push:
+    paths:
+      - "02-ci-build-and-test/**"
     branches:
       - main
       - dev
-    paths:
-      - "02-ci-build-and-test/**"
+    
 
 jobs:
   build-and-test:
