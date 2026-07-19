@@ -2,7 +2,9 @@ name: CI Pipeline - Build & Test
 
 on:
   push:
-    paths: "02-ci-build-and-test"
+    paths:
+      - "02-ci-build-and-test/**"
+          
     branches: 
       - main
       - dev
@@ -17,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkoutV4
+        uses: actions/checkout@V4
 
       - name: Build Docker
         run: docker build -t cicd-prod . 
@@ -30,4 +32,4 @@ jobs:
       
       - name: Fake Test
         run: echo "All tests passes sucessfully"
-        
+
