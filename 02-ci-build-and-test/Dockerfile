@@ -4,7 +4,7 @@ FROM python:3.13-slim
 # Set the working directory
 WORKDIR /app
 COPY . .
-Run pip install -r requirements.txt 
+RUN pip install -r requirements.txt 
 
 
 
