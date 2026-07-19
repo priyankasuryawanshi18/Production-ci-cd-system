@@ -4,7 +4,7 @@ app=Flask(__name__)
 
 @app.route("/")
 def home():
-    raise Exception  as e :
+    raise Exception ("not working any more") :
 
 
 
