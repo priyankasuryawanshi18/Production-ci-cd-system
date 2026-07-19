@@ -3,7 +3,7 @@ name: Security Test CI/CD Pipeline
 on:
   push:
     paths:
-      - "02-ci-build-and-test/**"
+      - "02-ci-build/**"
     branches:
       - main
       - dev
@@ -15,7 +15,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: 02-ci-build-and-test
+        working-directory: 02-ci-build
 
     env:
       API_KEY: ${{ secrets.API_KEY }}
