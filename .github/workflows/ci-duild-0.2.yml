@@ -26,9 +26,20 @@ jobs:
       - name: Run Container 
         run: docker run -d -p 5000:5000 --name prod-container cicd-prod
 
-      - name: Wait for App
-        run: sleep 5
+      - name: Wait for app(Fait if not ready)
+        run: |
+          for i in {1..10};do
+            if curl -s http://localhost:5000;then
+              echo "App is up!"
+              exit 0
+            Fi 
+            echo "Waiting for app..."
+            sleep 2
+          done
+
+          echo "App Fsiled to start"
+          exit 1
       
-      - name: Fake Test
-        run: echo "All tests passes sucessfully"
+      - name: Real Health
+        run: curl -f http://localhost:5000
 

@@ -4,7 +4,7 @@ app=Flask(__name__)
 
 @app.route("/")
 def home():
-    exception in mind :
+    return "data"
 
 
 
