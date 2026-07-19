@@ -1,13 +1,12 @@
 name: CI Pipeline - Build & Test 0.2
 
 on:
-  push:
-    paths:
-      - "02-ci-build-and-test/**"
-          
+  push:      
     branches: 
       - main
       - dev
+    paths:
+      - "02-ci-build-and-test/**"
 
 jobs:
   build-test:
