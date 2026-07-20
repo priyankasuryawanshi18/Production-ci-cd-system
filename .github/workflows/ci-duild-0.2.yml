@@ -24,8 +24,8 @@ jobs:
         run: docker build -t cicd-prod .
 
       - name: Set API Key
-        run: |
-          echo "API_KEY=MY-SUPER-MY-Secret-Key" >> "$GITHUB_ENV"
+        env: 
+          API_KEY:"MY-SUPER-MY-Secret-Key" >> "$GITHUB_ENV"
 
       - name: Run Container
         run: |
