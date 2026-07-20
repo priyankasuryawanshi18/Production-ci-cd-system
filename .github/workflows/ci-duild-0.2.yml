@@ -20,7 +20,7 @@ jobs:
         working-directory: 02-ci-build-and-test
 
     env: 
-      API_KEY: ${{ secret.API_KEY }}
+      API_KEY: ${{ secrets.API_KEY }}
 
     steps:
       - name: Checkout Code
