@@ -4,7 +4,7 @@ app=Flask(__name__)
 
 @app.route("/")
 def home():
-    return {"name":"priyanka"}
+    raise exception  not working : 
 
 
 
