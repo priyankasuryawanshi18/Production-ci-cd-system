@@ -15,6 +15,7 @@ jobs:
 
     defaults:
       run:
+        shell: cmd
         working-directory: 04-deployement-sucess-but-app-down
     
     steps:
