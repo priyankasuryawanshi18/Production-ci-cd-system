@@ -27,7 +27,7 @@ jobs:
 
       # Build Docker image
       - name: Build Docker image
-        run: docker build -t cicd-prod
+        run: docker build -t cicd-prod .
 
       # craete Container
       - name: Run Container
