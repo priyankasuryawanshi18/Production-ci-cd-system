@@ -1,0 +1,42 @@
+name: CI Pipeline - Deployement Failure
+
+on: 
+  push: 
+    paths:
+      - "04-deployement-sucess-but-app-down/**"
+    branches:
+      - main
+      - dev
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    defaults:
+      run:
+        waorking-directory: 04-deployement-sucess-but-app-down
+    
+    steps:
+      # check code
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      # cleanup old container(imporatant for self hosted)
+      - name: Cleanup Old container
+        run: docker rm -f prod-container || true
+
+      # Build Docker image
+      - name: Build Docker image
+        run: docker build -t cicd-prod
+
+      # craete Container
+      - name: Run Container
+        run: docker run -d -p 5000:5000 --name prod-container cicd-prod
+
+      # wait for app (simple delay)
+      - name: wait for App
+        run: sleep 5 
+
+      # Success
+      - name: Deployement Sucess Message
+        run: echo "Deployement Successful"
