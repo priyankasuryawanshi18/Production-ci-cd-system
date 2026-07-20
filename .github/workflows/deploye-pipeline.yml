@@ -2,11 +2,12 @@ name: CI Pipeline - Deployement Failure
 
 on: 
   push: 
-    paths:
-      - "04-deployement-sucess-but-app-down/**"
+    
     branches:
       - main
       - dev
+    paths:
+      - "04-deployement-sucess-but-app-down/**"
 
 jobs:
   deploy:
