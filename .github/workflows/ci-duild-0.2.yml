@@ -24,10 +24,10 @@ jobs:
         run: docker build -t cicd-prod . 
 
       - name: Set secret
-        run: "API_KEY=MY-SUPER=MY-Secret-Key"  >> $GITHUB_ENV
+        run: "API_KEY=MY-SUPER-MY-SECRET-KEY"  >> $GITHUB_ENV
 
       - name: Run Container 
-        run: docker run -d -p 5000:5000 -e API_KEY=$API_KEY --name prod-container cicd-prod
+        run: docker run -d -p 5000:5000 -e API_KEY=${{ env.API_KEY }} --name prod-container cicd-prod
 
       - name: Wait for app(Fait if not ready)
         run: |
