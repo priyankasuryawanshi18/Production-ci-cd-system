@@ -14,7 +14,7 @@ jobs:
 
     defaults:
       run:
-        worrking-directory: 04-deployement-sucess-but-app-down
+        working-directory: 04-deployement-sucess-but-app-down
     
     steps:
       # check code
