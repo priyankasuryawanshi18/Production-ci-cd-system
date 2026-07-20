@@ -43,3 +43,7 @@ jobs:
       - name: Real Health
         run: curl -f http://localhost:5000
 
+      - name: cleanup container
+        if: always()
+        run: docker stop prod-container && docker rm prod-container
+
