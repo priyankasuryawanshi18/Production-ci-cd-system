@@ -30,8 +30,7 @@ jobs:
         run: docker build -t cicd-prod .
 
       
-        env: 
-          API_KEY:"MY-SUPER-MY-SECRET-KEY" >> "$GITHUB_ENV"
+       
 
       - name: Run Container
         run: |
