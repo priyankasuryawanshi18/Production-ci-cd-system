@@ -29,8 +29,6 @@ jobs:
       - name: Build Docker Image
         run: docker build -t cicd-prod .
 
-      
-       
 
       - name: Run Container
         run: |
