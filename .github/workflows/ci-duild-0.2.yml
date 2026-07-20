@@ -8,6 +8,9 @@ on:
     paths:
       - "02-ci-build-and-test/**"
 
+    
+    
+
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -16,6 +19,9 @@ jobs:
       run:
         working-directory: 02-ci-build-and-test
 
+    env: 
+      API_KEY: ${{ secret.API_KEY }}
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -23,7 +29,7 @@ jobs:
       - name: Build Docker Image
         run: docker build -t cicd-prod .
 
-      - name: Set API Key
+      
         env: 
           API_KEY:"MY-SUPER-MY-SECRET-KEY" >> "$GITHUB_ENV"
 
