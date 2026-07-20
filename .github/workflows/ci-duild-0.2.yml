@@ -25,7 +25,7 @@ jobs:
 
       - name: Set API Key
         env: 
-          API_KEY:"MY-SUPER-MY-Secret-Key" >> "$GITHUB_ENV"
+          API_KEY:"MY-SUPER-MY-SECRET-KEY" >> "$GITHUB_ENV"
 
       - name: Run Container
         run: |
