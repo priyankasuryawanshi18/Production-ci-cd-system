@@ -32,7 +32,7 @@ jobs:
             if curl -s http://localhost:5000; then
               echo "App is up!"
               exit 0
-            Fi 
+            fi 
             echo "Waiting for app..."
             sleep 2
           done
