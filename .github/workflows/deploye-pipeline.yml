@@ -23,8 +23,12 @@ jobs:
         uses: actions/checkout@v4
 
       # cleanup old container(imporatant for self hosted)
-      - name: Cleanup Old container
-        run: docker rm -f prod-container || true
+      - name: Remove old container
+        shell: powershell
+        run: |
+          if (docker ps -a --format "{{.Names}}" | Select-String "^prod-container$") {
+              docker rm -f prod-container
+          }
 
       # Build Docker image
       - name: Build Docker image
