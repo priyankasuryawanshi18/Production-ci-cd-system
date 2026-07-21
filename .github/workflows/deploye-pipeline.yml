@@ -24,10 +24,15 @@ jobs:
 
       # cleanup old container(imporatant for self hosted)
       - name: Remove old container
-        shell: powershell
         run: |
-          if (docker ps -a --format "{{.Names}}" | Select-String "^prod-container$") {
+          $container = docker ps -a --filter "name=^/prod-container$" --format "{{.Names}}"
+
+          if ($container -eq "prod-container") {
+              Write-Host "Removing existing container..."
               docker rm -f prod-container
+          }
+          else {
+              Write-Host "Container does not exist."
           }
 
       # Build Docker image
